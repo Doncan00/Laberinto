@@ -15,6 +15,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+
+
+
+
 public class Ventana extends JFrame{
 	JFrame zumaya = new JFrame();
 	int x=10, y=40, lastPress=0,lastPosX,lastPosY;
@@ -32,6 +36,14 @@ public class Ventana extends JFrame{
 		this.getContentPane().setBackground(Color.decode("#318CE7"));
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		PingPong p1 = new PingPong("Hola",20);
+//		p1.start();
+		
+//		try{ 
+//			sleep(5000);
+//		}catch (InterruptedException e){};
+
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.black);
@@ -72,7 +84,7 @@ public class Ventana extends JFrame{
 				case 65:
 				case 37:
 					if (x >10 && (col != 2 && (col != 6 && col != 9))) {						
-					x-=1;
+					x-=5;
 					}
 					break;
 				//s
@@ -80,21 +92,21 @@ public class Ventana extends JFrame{
 				case 40:
 					if (y <460 && (col!=4 && (col != 6 && col != 5))) {	
 //						System.out.println(col);
-					y+=1;
+					y+=5;
 					}
 					break;
 				//d
 				case 68:
 				case 39:
 					if (x < 675  && (col != 1 && (col != 8 && col != 5))) {						
-					x+=1;
+					x+=5;
 					}
 					break;
 				//w
 				case 87:
 				case 38:
 					if (y >30 && (col != 7&& (col != 8 && col != 9))) {						
-					y-=1;
+					y-=5;
 					}
 					break;
 				}
@@ -126,7 +138,7 @@ public class Ventana extends JFrame{
 	public void paint (Graphics g) {
 		super.paint(g);
 		int j=0;
-		Rect[] p = new Rect[16];
+		Rect[] p = new Rect[100];
 		for (int i = 0; i < p.length; i++) {
 		    p[i] = new Rect(0, 0, 0, 0, Color.black);
 		}
@@ -142,32 +154,209 @@ public class Ventana extends JFrame{
 		j++;
 		
 		p[j] = new Rect (685,30,10,445,Color.decode("#D264DB"));
-		g.setColor(p[j].c);
-		g.fillRect(p[j].x, p[j].y, p[j].w, p[j].h);
 		j++;
 		
 		p[j] = new Rect (0,470,695,10,Color.decode("#D264DB"));
-		g.setColor(p[j].c);
-		g.fillRect(p[j].x, p[j].y, p[j].w, p[j].h);
 		j++;
 		
 		p[j] = new Rect (5,55,10,420,Color.decode("#D264DB"));
-		g.setColor(p[j].c);
-		g.fillRect(p[j].x, p[j].y, p[j].w, p[j].h);
 		j++;
 		
+		p[j] = new Rect (5,55,10,420,Color.decode("#D264DB"));
+		j++;
 		
 		//Las otras paredes
-		p[j] = new Rect (80,30,5,50,Color.decode("#D264DB"));
-		g.setColor(p[j].c);
-		g.fillRect(p[j].x, p[j].y, p[j].w, p[j].h);
+		p[j] = new Rect (65,30,5,50,Color.decode("#D264DB"));
 		j++;
 
-		p[j] = new Rect (16,55,40,5,Color.decode("#D264DB"));
-		g.setColor(p[j].c);
-		g.fillRect(p[j].x, p[j].y, p[j].w, p[j].h);
+		p[j] = new Rect (15,55,35,5,Color.decode("#D264DB"));
 		j++;
 		
+		p[j] = new Rect (35,75,30,5,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (15,95,70,5,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (85,70,5,30,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (70,50,35,5,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (105,50,5,70,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (85,120,25,5,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (80,120,5,30,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (60,100,5,65,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (35,165,75,5,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (105,145,5,20,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (110,145,20,5,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (130,120,5,110,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (110,100,45,5,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (155,100,5,150,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (115,250,45,5,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (30,250,85,5,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (105,190,5,40,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (40,190,65,5,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (40,190,5,25,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (15,230,50,5,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (60,195,5,40,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (15,140,35,5,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (30,115,5,25,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (80,210,5,40,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (50,255,5,70,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (15,290,15,5,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (30,270,5,25,Color.decode("#D264FDB"));
+		j++;
+		
+		p[j] = new Rect (35,320,15,5,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (35,320,5,40,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (35,380,50,5,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (35,385,5,25,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (15,430,60,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (55,340,5,40,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (60,340,60,5,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (80,300,5,40,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (85,300,70,5,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (85,370,5,15,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (105,270,5,30,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (85,255,5,20,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (70,275,20,5,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (125,255,5,30,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (155,270,5,120,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (160,250,20,5,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (180,250,5,25,Color.decode("#D264DB"));
+		j++;
+
+		p[j] = new Rect (160,290,30,5,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (185,270,20,5,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (205,270,5,60,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (185,295,5,20,Color.decode("#D264DB"));
+		j++;
+		
+		p[j] = new Rect (185,330,25,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (185,330,5,60,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (185,390,30,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (135,320,5,90,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (95,320,40,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (70,355,65,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (70,360,5,10,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (100,390,35,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (90,370,20,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (85,385,5,70,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (30,450,300,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (30,450,300,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		
+		for (int i = 0; i < p.length; i++) {
+			g.setColor(p[i].c);
+			g.fillRect(p[i].x, p[i].y, p[i].w, p[i].h);
+		}
 		col=0;
 		int cont = 0,num=0;
 //		System.out.println();
@@ -261,5 +450,22 @@ public class Ventana extends JFrame{
 		return 0;
 		}
 	}
+	
+	
+	public class PingPong extends Thread{
+		private String word; // Lo que va a escribir.
+		private int delay; // Tiempo entre escrituras
+		public PingPong(String queDecir,int cadaCuantosMs){
+		word = queDecir; delay = cadaCuantosMs; };
+		public void run(){ //Se sobrescribe run() de Thread
+		while(true){
+		System.out.print(word + "");
+		zumaya.repaint();
+		try{
+		sleep(delay);
+		} catch(InterruptedException e){ return; }
+		}
+		}
+		}
 }
 
