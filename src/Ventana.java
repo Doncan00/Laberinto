@@ -349,12 +349,44 @@ public class Ventana extends JFrame{
 		p[j] = new Rect (30,450,300,5,Color.decode("#FFFFFF"));
 		j++;
 		
-		p[j] = new Rect (30,450,300,5,Color.decode("#FFFFFF"));
+		p[j] = new Rect (90,410,35,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (155,405,5,30,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (140,405,20,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (100,430,200,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (300,380,5,55,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (175,410,100,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (200,370,30,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (230,370,5,40,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (200,350,30,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (225,250,5,100,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (200,250,30,5,Color.decode("#FFFFFF"));
 		j++;
 		
 		
+		
+		
 		for (int i = 0; i < p.length; i++) {
-			g.setColor(p[i].c);
+			g.setColor(p[1].c);
 			g.fillRect(p[i].x, p[i].y, p[i].w, p[i].h);
 		}
 		col=0;
