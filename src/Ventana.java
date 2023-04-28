@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 
 public class Ventana extends JFrame{
 	JFrame zumaya = new JFrame();
-	int x=100, y=100, lastPress=0,lastPosX,lastPosY;
+	int x=10, y=40, lastPress=0,lastPosX,lastPosY;
 	int col = 0;
 	
 	public Ventana() {
@@ -25,7 +25,7 @@ public class Ventana extends JFrame{
 		this.setVisible(true);
 		this.setTitle("Hola Zumaya");
 		this.setSize(700, 500);
-		this.setResizable(true);
+		this.setResizable(false);
 //		this.setLayout();
 		this.setLocationRelativeTo(null);
 		
@@ -65,36 +65,37 @@ public class Ventana extends JFrame{
 				// TODO Auto-generated method stub
 				lastPress = e.getKeyCode();
 				
-				//while (true) {
-				lastPosX = x;
-				lastPosY = y;
-				System.out.println(col);
+				//while (true) 
+//				System.out.println(col);
 				switch (e.getKeyCode()) {
 				//a
 				case 65:
 				case 37:
-					if (x >10 && col != 2)
-					x-=5;
-					lastPosX +=5;
+					if (x >10 && (col != 2 && (col != 6 && col != 9))) {						
+					x-=1;
+					}
 					break;
 				//s
 				case 83:
 				case 40:
-					if (y <455 && col!=4)
-					y+=5;
+					if (y <460 && (col!=4 && (col != 6 && col != 5))) {	
+//						System.out.println(col);
+					y+=1;
+					}
 					break;
 				//d
 				case 68:
 				case 39:
-					if (x < 670  && col != 1)
-					x+=5;
-					lastPosX -=5;
+					if (x < 675  && (col != 1 && (col != 8 && col != 5))) {						
+					x+=1;
+					}
 					break;
 				//w
 				case 87:
 				case 38:
-					if (y >30 && col != 3)
-					y-=5;
+					if (y >30 && (col != 7&& (col != 8 && col != 9))) {						
+					y-=1;
+					}
 					break;
 				}
 				switch (col) {
@@ -124,16 +125,66 @@ public class Ventana extends JFrame{
 	
 	public void paint (Graphics g) {
 		super.paint(g);
+		int j=0;
+		Rect[] p = new Rect[16];
+		for (int i = 0; i < p.length; i++) {
+		    p[i] = new Rect(0, 0, 0, 0, Color.black);
+		}
 		
-		Rect r = new Rect (x,y,20,20,Color.blue);
+		Rect r = new Rect (x,y,10,10,Color.blue);
 		g.setColor(r.c);
 		g.fillRect(r.x, r.y, r.w, r.h);
 		
-		Rect p = new Rect (200,100,60,300,Color.red);
-		g.setColor(p.c);
-		g.fillRect(p.x, p.y, p.w, p.h);
+		//4 bordes
+		p[j] = new Rect (0,30,690,5,Color.decode("#D264DB"));
+		g.setColor(p[j].c);
+		g.fillRect(p[j].x, p[j].y, p[j].w, p[j].h);
+		j++;
 		
-		col = r.colision(p);
+		p[j] = new Rect (685,30,10,445,Color.decode("#D264DB"));
+		g.setColor(p[j].c);
+		g.fillRect(p[j].x, p[j].y, p[j].w, p[j].h);
+		j++;
+		
+		p[j] = new Rect (0,470,695,10,Color.decode("#D264DB"));
+		g.setColor(p[j].c);
+		g.fillRect(p[j].x, p[j].y, p[j].w, p[j].h);
+		j++;
+		
+		p[j] = new Rect (5,55,10,420,Color.decode("#D264DB"));
+		g.setColor(p[j].c);
+		g.fillRect(p[j].x, p[j].y, p[j].w, p[j].h);
+		j++;
+		
+		
+		//Las otras paredes
+		p[j] = new Rect (80,30,5,50,Color.decode("#D264DB"));
+		g.setColor(p[j].c);
+		g.fillRect(p[j].x, p[j].y, p[j].w, p[j].h);
+		j++;
+
+		p[j] = new Rect (16,55,40,5,Color.decode("#D264DB"));
+		g.setColor(p[j].c);
+		g.fillRect(p[j].x, p[j].y, p[j].w, p[j].h);
+		j++;
+		
+		col=0;
+		int cont = 0,num=0;
+//		System.out.println();
+		for (int i = 0; i < p.length; i++) {
+//			System.out.println(col);
+			col += r.colision(p[i]);
+			if (r.colision(p[i]) != 0) {
+				if (r.colision(p[i]) == num && cont != 0) {
+//					System.out.println("Dos "+r.colision(p[i]));
+					col -= r.colision(p[i]);
+					cont--;
+				}
+				num = r.colision(p[i]);
+				cont++;
+			}
+//			System.out.println(col);
+		}
 		
 	}
 	public class Rect {
@@ -149,32 +200,62 @@ public class Ventana extends JFrame{
 			this.h = h;
 			this.c = c;
 		}
-		/////////////////////////////////////////////////////////////////////////////////////////////////
-		////////////////////////////// FALTA RESOLVER UN BUG CON LAS ESQUINAS (FACIL) ///////////////////
-		/////////////////////////////////////////////////////////////////////////////////////////////////
 		public int colision (Rect target) {
 		
 		if (this.x < target.x + target.w +1&&
 			this.x + this.w > target.x -1&&
 			this.y < target.y + target.h +1&&
 			this.y + this.h > target.y -1) {
-			System.out.println("adentro");
+//			System.out.println("adentro");
 			//Colisión horizontal izquierda
 			if (this.x + this.w == target.x) {
-				System.out.println("Colision horizontal izquierda");
+				if (this.y == target.y + target.h) {
+//					System.out.println("Colision esquina");
+					return 0;
+				}else if (this.y + this.h == target.y) {
+//					System.out.println("Colision esquina");
+					return 0;
+				}
+				else {
+//				System.out.println("Colision horizontal izquierda");
 				return 1;				
+				}
 			}else if (this.x == target.x + target.w) {
 			//Colisión horizontal derecha
-				System.out.println("Colision horizontal derecha");
+				if (this.y == target.y + target.h) {
+//					System.out.println("Colision esquina");
+					return 0;
+				}else if (this.y + this.h == target.y) {
+//					System.out.println("Colision esquina");
+					return 0;
+				}else {					
+//				System.out.println("Colision horizontal derecha");
 				return 2;				
+				}
 			}else if (this.y == target.y + target.h) {
 			//Colisión vertical abajo
-				System.out.println("Colision horizontal izquierda");
-				return 3;				
+				if (this.x + this.w == target.x) {
+//					System.out.println("Colision esquina");
+					return 0;
+				}else if (this.x == target.x + target.w) {
+//					System.out.println("Colision esquina");
+					return 0;
+				} else {					
+//				System.out.println("Colisión vertical abajo");
+				return 7;				
+				}
 			}else if (this.y + this.h == target.y) {
 			//Colisión vertical arriba
-				System.out.println("Colision horizontal izquierda");
+				if (this.x + this.w == target.x) {
+//					System.out.println("Colision esquina");
+					return 0;
+				}else if (this.x == target.x + target.w) {
+//					System.out.println("Colision esquina");
+					return 0;
+				} else {					
+//				System.out.println("Colisión vertical arriba");
 				return 4;				
+				}
 			}
 		}
 		return 0;
