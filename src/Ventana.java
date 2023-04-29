@@ -24,6 +24,7 @@ public class Ventana extends JFrame{
 	JFrame zumaya = new JFrame();
 	int x=10, y=40, lastPress=0,lastPosX,lastPosY;
 	int col = 0;
+	int reinicioCont =0,contt2 = 0,contt3=0;
 	
 	public Ventana() {
 		
@@ -65,6 +66,21 @@ public class Ventana extends JFrame{
 		jbReinicio.setVisible(true);
 		reinicio.add(jbReinicio , BorderLayout.CENTER);
 		
+		jbReinicio.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				reinicioCont=0;
+				
+				panel.setFocusable(true);
+				panel.requestFocus();
+				
+				repaint();
+			}
+			
+		});
+		
 		panel.addKeyListener(new KeyListener() {
 
 			@Override
@@ -76,7 +92,6 @@ public class Ventana extends JFrame{
 			@Override
 			public void keyPressed(KeyEvent e) {
 				// TODO Auto-generated method stub
-				lastPress = e.getKeyCode();
 				
 				//while (true) 
 //				System.out.println(col);
@@ -84,34 +99,50 @@ public class Ventana extends JFrame{
 				//a
 				case 65:
 				case 37:
-					if (x >10 && (col != 2 && (col != 6 && col != 9))) {						
-					x-=5;
+					if (x >10 && (col != 2 && (col != 6 && col != 9 && col != 3))) {						
+						if (contt3==0) {
+							x-=5;							
+						}else {
+							x-=5;
+						}
 					}
 					break;
 				//s
 				case 83:
 				case 40:
-					if (y <460 && (col!=4 && (col != 6 && col != 5))) {	
+					if (y <460 && (col!=4 && (col != 6 && col != 5 && col != 11))) {	
 //						System.out.println(col);
-					y+=5;
+					if (contt3==0) {
+						y+=5;						
+					}else {
+						y+=5;
+					}
 					}
 					break;
 				//d
 				case 68:
 				case 39:
-					if (x < 685  && (col != 1 && (col != 8 && col != 5))) {						
-					x+=5;
+					if (x < 685  && (col != 1 && (col != 8 && col != 5 && col != 3))) {						
+						if (contt3==0) {
+							x+=5;							
+						}else {
+							x+=5;
+						}
 					}
 					break;
 				//w
 				case 87:
 				case 38:
-					if (y >30 && (col != 7&& (col != 8 && col != 9))) {						
-					y-=5;
+					if (y >30 && (col != 7&& (col != 8 && col != 9 && col != 11))) {						
+						if (contt3==0) {
+							y-=5;							
+						}else {
+							y-=5;
+						}
 					}
 					break;
 				}
-				if (x == 685 && y == 460) {
+				if (x >= 685 && y >= 460) {
 					JOptionPane.showMessageDialog(null, "GANADOOOOR, YA DUERMETE");
 				}
 				
@@ -130,12 +161,22 @@ public class Ventana extends JFrame{
 		panel.setFocusable(true);
 		panel.requestFocus();
 		
+		x+=5;
+		repaint();
 		this.repaint();
 		this.revalidate();
 	}
 	
 	public void paint (Graphics g) {
 		super.paint(g);
+		
+		if (reinicioCont == 0) {
+			x=0;
+			y=40;
+			contt2 =0;
+			reinicioCont++;
+		}	
+		
 		int j=0;
 		Rect[] p = new Rect[250];
 		for (int i = 0; i < p.length; i++) {
@@ -346,13 +387,13 @@ public class Ventana extends JFrame{
 		p[j] = new Rect (85,385,5,70,Color.decode("#FFFFFF"));
 		j++;
 		
-		p[j] = new Rect (30,450,500,5,Color.decode("#FFFFFF"));
+		p[j] = new Rect (30,455,500,5,Color.decode("#FFFFFF"));
 		j++;
 		
 		p[j] = new Rect (90,410,35,5,Color.decode("#FFFFF"));
 		j++;
 		
-		p[j] = new Rect (155,405,5,30,Color.decode("#FFFFFF"));
+		p[j] = new Rect (155,405,5,30,Color.decode("#FFFFF"));
 		j++;
 		
 		p[j] = new Rect (140,405,20,5,Color.decode("#FFFFFF"));
@@ -439,10 +480,10 @@ public class Ventana extends JFrame{
 		p[j] = new Rect (285,35,5,200,Color.decode("#FFFFF"));
 		j++;
 		
-		p[j] = new Rect (530,450,5,20,Color.decode("#FFFFFF"));
+		p[j] = new Rect (530,455,5,15,Color.decode("#FFFFF"));
 		j++;
 		
-		p[j] = new Rect (320,355,5,95,Color.decode("#FFFFF"));
+		p[j] = new Rect (320,355,5,100,Color.decode("#FFFFF"));
 		j++;
 		
 		p[j] = new Rect (300,340,5,80,Color.decode("#FFFFF"));
@@ -451,19 +492,19 @@ public class Ventana extends JFrame{
 		p[j] = new Rect (300,335,180,5,Color.decode("#FFFFF"));
 		j++;
 		
-		p[j] = new Rect (365,355,5,95,Color.decode("#FFFFF"));
+		p[j] = new Rect (365,355,5,100,Color.decode("#FFFFFF"));
 		j++;
 		
-		p[j] = new Rect (410,355,5,95,Color.decode("#FFFFF"));
+		p[j] = new Rect (410,355,5,100,Color.decode("#FFFFF"));
 		j++;
 		
-		p[j] = new Rect (455,355,5,95,Color.decode("#FFFFF"));
+		p[j] = new Rect (455,355,5,100,Color.decode("#FFFFF"));
 		j++;
 		
-		p[j] = new Rect (345,340,5,95,Color.decode("#FFFFF"));
+		p[j] = new Rect (345,340,5,100,Color.decode("#FFFFF"));
 		j++;
 		
-		p[j] = new Rect (390,340,5,95,Color.decode("#FFFFF"));
+		p[j] = new Rect (390,340,5,100,Color.decode("#FFFFF"));
 		j++;
 		
 		p[j] = new Rect (435,340,5,95,Color.decode("#FFFFF"));
@@ -487,7 +528,7 @@ public class Ventana extends JFrame{
 		p[j] = new Rect (470,270,5,30,Color.decode("#FFFFFF"));
 		j++;
 		
-		p[j] = new Rect (450,285,5,30,Color.decode("#FFFFFF"));
+		p[j] = new Rect (450,285,5,30,Color.decode("#FFFFF"));
 		j++;
 		
 		p[j] = new Rect (420,285,30,5,Color.decode("#FFFFFF"));
@@ -550,7 +591,7 @@ public class Ventana extends JFrame{
 		p[j] = new Rect (485,280,15,5,Color.decode("#FFFFF"));
 		j++;
 		
-		p[j] = new Rect (515,155,5,295,Color.decode("#FFFFF"));
+		p[j] = new Rect (515,155,5,300,Color.decode("#FFFFF"));
 		j++;
 		
 		p[j] = new Rect (305,155,215,5,Color.decode("#FFFFF"));
@@ -685,7 +726,7 @@ public class Ventana extends JFrame{
 		p[j] = new Rect (405,130,115,5,Color.decode("#FFFFFF"));
 		j++;
 		
-		p[j] = new Rect (505,135,5,20,Color.decode("#FFFFFF"));
+		p[j] = new Rect (505,135,5,20,Color.decode("#FFFFF"));
 		j++;
 		
 		p[j] = new Rect (520,170,150,5,Color.decode("#FFFFFF"));
@@ -775,16 +816,16 @@ public class Ventana extends JFrame{
 		p[j] = new Rect (580,330,35,5,Color.decode("#FFFFFF"));
 		j++;
 		
-		p[j] = new Rect (580,415,105,5,Color.decode("#FFFFFF"));
+		p[j] = new Rect (580,415,105,5,Color.decode("#FFFFF"));
+		j++;
+	
+		p[j] = new Rect (580,415,5,30,Color.decode("#FFFFF"));
 		j++;
 		
-		p[j] = new Rect (580,415,5,30,Color.decode("#FFFFFF"));
+		p[j] = new Rect (555,435,5,35,Color.decode("#FFFFF"));
 		j++;
 		
-		p[j] = new Rect (555,435,5,35,Color.decode("#FFFFFF"));
-		j++;
-		
-		p[j] = new Rect (600,435,5,35,Color.decode("#FFFFFF"));
+		p[j] = new Rect (600,435,5,35,Color.decode("#FFFFF"));
 		j++;
 		
 		p[j] = new Rect (600,435,70,5,Color.decode("#FFFFFF"));
@@ -793,10 +834,48 @@ public class Ventana extends JFrame{
 		p[j] = new Rect (620,455,65,5,Color.decode("#FFFFF"));
 		j++;
 		
+		
+		//Buffos
+		if (contt2 ==0) {
+			Rect b = new Rect (225,90,5,5,Color.decode("#FFFFFF"));
+			j++;
+			g.setColor(b.c);
+			g.fillRect(b.x,b.y,b.w,b.h);
+			if (r.colision(b) > 0 ) {
+				contt2++;
+			}
+		}
+//		
+//		if (contt3 ==0) {
+//			Rect b2 = new Rect (40,40,5,5,Color.decode("#FFFFF"));
+//			j++;
+//			g.setColor(b2.c);
+//			g.fillRect(b2.x,b2.y,b2.w,b2.h);
+//			if (r.colision(b2) > 0 ) {
+//				contt3++;
+//			}
+//		}
+		
+		
+		//Atajos
+		g.setColor(Color.orange);
+		g.fillRect(528,460,9,10);
+
+		g.setColor(Color.orange);
+		g.fillRect(235,407,10,9);
+
+		g.setColor(Color.orange);
+		g.fillRect(675,397,10,9);
+		
+		g.setColor(Color.orange);
+		g.fillRect(675,412,10,9);
+		
 		//Victoria
 		g.setColor(Color.green);
 		g.fillRect(685,460,10,10);
 		
+		
+		//PONER COLORES
 		int contt =0;
 		for (int i = 0; i < p.length; i++) {
 			if (contt == 0) {				
@@ -806,18 +885,17 @@ public class Ventana extends JFrame{
 			g.setColor(Color.decode("#FFFFFF"));
 			contt =0;
 			}
-			g.setColor(p[i].c);
+			if (contt2 == 0) {				
+			g.setColor(p[1].c);
+			}
 			g.fillRect(p[i].x, p[i].y, p[i].w, p[i].h);
 		}
 		col=0;
 		int cont = 0,num=0;
-//		System.out.println();
 		for (int i = 0; i < p.length; i++) {
-//			System.out.println(col);
 			col += r.colision(p[i]);
 			if (r.colision(p[i]) != 0) {
 				if (r.colision(p[i]) == num && cont != 0) {
-//					System.out.println("Dos "+r.colision(p[i]));
 					col -= r.colision(p[i]);
 					cont--;
 				}
@@ -826,8 +904,9 @@ public class Ventana extends JFrame{
 			}
 //			System.out.println(col);
 		}
-		
 	}
+	
+	
 	public class Rect {
 		int x=0;
 		int y=0;
