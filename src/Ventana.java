@@ -13,6 +13,7 @@ import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
@@ -98,7 +99,7 @@ public class Ventana extends JFrame{
 				//d
 				case 68:
 				case 39:
-					if (x < 675  && (col != 1 && (col != 8 && col != 5))) {						
+					if (x < 685  && (col != 1 && (col != 8 && col != 5))) {						
 					x+=5;
 					}
 					break;
@@ -110,10 +111,8 @@ public class Ventana extends JFrame{
 					}
 					break;
 				}
-				switch (col) {
-				case 1:
-					
-					break;
+				if (x == 685 && y == 460) {
+					JOptionPane.showMessageDialog(null, "GANADOOOOR, YA DUERMETE");
 				}
 				
 				repaint();
@@ -138,7 +137,7 @@ public class Ventana extends JFrame{
 	public void paint (Graphics g) {
 		super.paint(g);
 		int j=0;
-		Rect[] p = new Rect[100];
+		Rect[] p = new Rect[250];
 		for (int i = 0; i < p.length; i++) {
 		    p[i] = new Rect(0, 0, 0, 0, Color.black);
 		}
@@ -147,13 +146,14 @@ public class Ventana extends JFrame{
 		g.setColor(r.c);
 		g.fillRect(r.x, r.y, r.w, r.h);
 		
-		//4 bordes
+		//Jugador
 		p[j] = new Rect (0,30,690,5,Color.decode("#D264DB"));
 		g.setColor(p[j].c);
 		g.fillRect(p[j].x, p[j].y, p[j].w, p[j].h);
 		j++;
 		
-		p[j] = new Rect (685,30,10,445,Color.decode("#D264DB"));
+		//4 bordes
+		p[j] = new Rect (685,30,10,430,Color.decode("#D264DB"));
 		j++;
 		
 		p[j] = new Rect (0,470,695,10,Color.decode("#D264DB"));
@@ -346,7 +346,7 @@ public class Ventana extends JFrame{
 		p[j] = new Rect (85,385,5,70,Color.decode("#FFFFFF"));
 		j++;
 		
-		p[j] = new Rect (30,450,300,5,Color.decode("#FFFFFF"));
+		p[j] = new Rect (30,450,500,5,Color.decode("#FFFFFF"));
 		j++;
 		
 		p[j] = new Rect (90,410,35,5,Color.decode("#FFFFF"));
@@ -358,7 +358,7 @@ public class Ventana extends JFrame{
 		p[j] = new Rect (140,405,20,5,Color.decode("#FFFFFF"));
 		j++;
 		
-		p[j] = new Rect (100,430,200,5,Color.decode("#FFFFFF"));
+		p[j] = new Rect (100,430,200,5,Color.decode("#FFFFF"));
 		j++;
 		
 		p[j] = new Rect (300,380,5,55,Color.decode("#FFFFF"));
@@ -382,30 +382,450 @@ public class Ventana extends JFrame{
 		p[j] = new Rect (200,250,30,5,Color.decode("#FFFFFF"));
 		j++;
 		
+		p[j] = new Rect (200,230,5,20,Color.decode("#FFFFF"));
+		j++;
 		
+		p[j] = new Rect (175,230,25,5,Color.decode("#FFFFF"));
+		j++;
 		
+		p[j] = new Rect (175,80,5,135,Color.decode("#FFFFF"));
+		j++;
 		
+		p[j] = new Rect (125,80,50,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (125,35,5,25,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (125,60,70,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (195,60,5,130,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (195,190,50,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (180,210,90,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (265,50,5,160,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (240,70,5,120,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (220,70,20,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (215,70,5,100,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (215,50,50,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (140,45,80,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (285,35,5,200,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (225,230,65,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (245,230,5,180,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (285,35,5,200,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (530,450,5,20,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (320,355,5,95,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (300,340,5,80,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (300,335,180,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (365,355,5,95,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (410,355,5,95,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (455,355,5,95,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (345,340,5,95,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (390,340,5,95,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (435,340,5,95,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (480,335,5,100,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (500,300,5,135,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (300,315,180,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (300,315,5,20,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (470,300,30,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (470,270,5,30,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (450,285,5,30,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (420,285,30,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (435,270,35,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (435,200,5,70,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (415,240,5,50,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (340,240,80,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (340,170,80,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (340,170,5,70,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (415,170,5,50,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (415,170,5,55,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (365,225,55,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (365,190,5,40,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (365,190,35,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (400,190,5,20,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (380,205,25,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (420,180,80,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (455,180,5,70,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (475,195,5,55,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (455,250,25,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (495,185,5,95,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (485,280,15,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (515,155,5,295,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (305,155,215,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (305,155,5,145,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (305,180,20,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (320,200,20,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (320,200,5,50,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (310,260,85,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (310,280,85,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (330,295,5,20,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (355,285,5,20,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (355,300,80,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (265,250,45,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (265,250,5,140,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (285,270,5,140,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (270,410,20,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (310,45,5,95,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (310,45,50,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (310,140,60,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (385,100,5,55,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (330,100,55,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (330,105,5,20,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (330,120,40,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (330,80,55,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (330,60,5,20,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (380,50,5,30,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (350,45,35,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (330,60,40,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (350,45,200,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (550,45,5,40,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (550,85,100,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (650,85,5,40,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (650,125,35,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (655,100,15,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (570,65,115,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (555,45,115,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (400,65,5,40,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (400,65,135,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (535,65,5,45,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (535,105,90,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (625,105,5,45,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (625,150,60,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (400,105,100,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (420,80,100,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (520,80,5,55,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (405,130,115,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (505,135,5,20,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (520,170,150,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (520,130,90,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (540,150,90,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (630,175,5,40,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (645,190,40,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (615,230,70,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (635,210,35,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (610,185,5,50,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (535,185,75,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (520,230,70,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (540,210,50,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (590,210,5,25,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (610,250,60,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (540,250,55,5,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (535,250,5,185,Color.decode("#FFFFF"));
+		j++;
+		
+		p[j] = new Rect (670,250,5,150,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (670,400,15,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (555,270,100,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (555,270,5,165,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (540,430,15,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (580,290,90,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (580,290,5,90,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (560,395,90,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (580,375,55,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (650,305,5,95,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (630,305,5,55,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (600,305,50,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (600,355,30,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (580,330,35,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (580,415,105,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (580,415,5,30,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (555,435,5,35,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (600,435,5,35,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (600,435,70,5,Color.decode("#FFFFFF"));
+		j++;
+		
+		p[j] = new Rect (620,455,65,5,Color.decode("#FFFFF"));
+		j++;
+		
+		//Victoria
+		g.setColor(Color.green);
+		g.fillRect(685,460,10,10);
+		
+		int contt =0;
 		for (int i = 0; i < p.length; i++) {
-			g.setColor(p[1].c);
+			if (contt == 0) {				
+			g.setColor(Color.decode("#FFFFF"));
+			contt++;
+			}else {
+			g.setColor(Color.decode("#FFFFFF"));
+			contt =0;
+			}
+			g.setColor(p[i].c);
 			g.fillRect(p[i].x, p[i].y, p[i].w, p[i].h);
 		}
 		col=0;
-		int cont = 0,num=0;
-//		System.out.println();
-		for (int i = 0; i < p.length; i++) {
-//			System.out.println(col);
-			col += r.colision(p[i]);
-			if (r.colision(p[i]) != 0) {
-				if (r.colision(p[i]) == num && cont != 0) {
-//					System.out.println("Dos "+r.colision(p[i]));
-					col -= r.colision(p[i]);
-					cont--;
-				}
-				num = r.colision(p[i]);
-				cont++;
-			}
-//			System.out.println(col);
-		}
+//		int cont = 0,num=0;
+////		System.out.println();
+//		for (int i = 0; i < p.length; i++) {
+////			System.out.println(col);
+//			col += r.colision(p[i]);
+//			if (r.colision(p[i]) != 0) {
+//				if (r.colision(p[i]) == num && cont != 0) {
+////					System.out.println("Dos "+r.colision(p[i]));
+//					col -= r.colision(p[i]);
+//					cont--;
+//				}
+//				num = r.colision(p[i]);
+//				cont++;
+//			}
+////			System.out.println(col);
+//		}
 		
 	}
 	public class Rect {
