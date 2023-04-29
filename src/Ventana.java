@@ -810,22 +810,22 @@ public class Ventana extends JFrame{
 			g.fillRect(p[i].x, p[i].y, p[i].w, p[i].h);
 		}
 		col=0;
-//		int cont = 0,num=0;
-////		System.out.println();
-//		for (int i = 0; i < p.length; i++) {
-////			System.out.println(col);
-//			col += r.colision(p[i]);
-//			if (r.colision(p[i]) != 0) {
-//				if (r.colision(p[i]) == num && cont != 0) {
-////					System.out.println("Dos "+r.colision(p[i]));
-//					col -= r.colision(p[i]);
-//					cont--;
-//				}
-//				num = r.colision(p[i]);
-//				cont++;
-//			}
-////			System.out.println(col);
-//		}
+		int cont = 0,num=0;
+//		System.out.println();
+		for (int i = 0; i < p.length; i++) {
+//			System.out.println(col);
+			col += r.colision(p[i]);
+			if (r.colision(p[i]) != 0) {
+				if (r.colision(p[i]) == num && cont != 0) {
+//					System.out.println("Dos "+r.colision(p[i]));
+					col -= r.colision(p[i]);
+					cont--;
+				}
+				num = r.colision(p[i]);
+				cont++;
+			}
+//			System.out.println(col);
+		}
 		
 	}
 	public class Rect {
