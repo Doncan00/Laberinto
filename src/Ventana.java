@@ -25,7 +25,7 @@ public class Ventana extends JFrame{
 	int x=10, y=40, lastPress=0,lastPosX,lastPosY;
 	int col = 0;
 	int reinicioCont =0,contt2 = 0,contt3=0;
-	
+	int tiempoGlob = 0;
 	public Ventana() {
 		
 		this.setVisible(true);
@@ -39,12 +39,8 @@ public class Ventana extends JFrame{
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		PingPong p1 = new PingPong("Hola",20);
-//		p1.start();
-		
-//		try{ 
-//			sleep(5000);
-//		}catch (InterruptedException e){};
+		PingPong p1 = new PingPong("Hola",1000);
+		p1.start();
 
 		
 		JPanel panel = new JPanel();
@@ -72,6 +68,7 @@ public class Ventana extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				reinicioCont=0;
+				tiempoGlob =0;
 				
 				panel.setFocusable(true);
 				panel.requestFocus();
@@ -143,7 +140,15 @@ public class Ventana extends JFrame{
 					break;
 				}
 				if (x >= 685 && y >= 460) {
-					JOptionPane.showMessageDialog(null, "GANADOOOOR, YA DUERMETE");
+					int min = tiempoGlob / 60;
+					int seg = tiempoGlob % 60;
+					String aux = Integer.toString(min);
+					String aux2 = Integer.toString(seg);
+					String tiempo = aux+" minutos " + aux2+" segundos";
+					JOptionPane.showMessageDialog(null, "Tardaste: "+ tiempo,"GANADOOOOOOR",JOptionPane.CANCEL_OPTION);
+					reinicioCont=0;
+					tiempoGlob =0;
+					
 				}
 				
 				repaint();
@@ -990,8 +995,9 @@ public class Ventana extends JFrame{
 		word = queDecir; delay = cadaCuantosMs; };
 		public void run(){ //Se sobrescribe run() de Thread
 		while(true){
-		System.out.print(word + "");
 		zumaya.repaint();
+		tiempoGlob ++;
+		System.out.println(tiempoGlob);
 		try{
 		sleep(delay);
 		} catch(InterruptedException e){ return; }
